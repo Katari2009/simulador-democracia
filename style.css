@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f5ff;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background: #1a3c6e;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+section {
+  background: white;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+  color: #1a3c6e;
+  margin-bottom: 1rem;
+}
+
+label, select, button {
+  margin: 0.5rem 0;
+  display: block;
+}
+
+button {
+  background: #1a3c6e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+button:hover {
+  background: #0d2647;
+}
+
+#resultado-votacion, #resultados-debate {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #e8f0fe;
+  border-radius: 5px;
+  display: none;
+}
+
+.politicas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.politica {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.impacto {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #555;
+  line-height: 1.5;
+}
+
+canvas {
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
+#lista-historial {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+#lista-historial li {
+  background: #f0f8ff;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  border-left: 4px solid #1a3c6e;
+}
+
+aside#habilidades {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding: 1rem;
+  background: #e3f2fd;
+  border-radius: 10px;
+  border: 1px solid #bbdefb;
+}
+
+aside#habilidades ul {
+  margin: 0.5rem 0 0 1.5rem;
+}
+
+aside#habilidades li {
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #eee;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  border-top: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+footer p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+footer strong {
+  color: #1a3c6e;
+  font-weight: bold;
+}

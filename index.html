@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulador de Participación Democrática</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🗳️ Simulador de Participación Democrática</h1>
+    <p>Para estudiantes de 3° y 4° medio - Educación Ciudadana | Chile</p>
+  </header>
+
+  <main>
+    <!-- Sección 1: Simulación Electoral -->
+    <section id="elecciones">
+      <h2>🗳️ Simulación Electoral con Datos Reales</h2>
+      <p>Basado en elecciones reales en Chile (Servel, 2017–2023), incluyendo Región de Atacama.</p>
+
+      <label for="eleccion">Tipo de elección:</label>
+      <select id="eleccion">
+        <option value="presidencial-2021">Presidencial 2021</option>
+        <option value="municipal-2021">Municipal 2021</option>
+        <option value="constituyente-2023">Constituyente 2023</option>
+      </select>
+
+      <label for="comuna">Selecciona tu comuna:</label>
+      <select id="comuna">
+        <!-- Región Metropolitana y otras -->
+        <option value="santiago">Santiago</option>
+        <option value="valparaiso">Valparaíso</option>
+        <option value="concepcion">Concepción</option>
+        <option value="puerto-montt">Puerto Montt</option>
+        <option value="calama">Calama</option>
+        <!-- Región de Atacama -->
+        <option value="copiapo">Copiapó</option>
+        <option value="caldera">Caldera</option>
+        <option value="vallenar">Vallenar</option>
+        <option value="diego-almagro">Diego de Almagro</option>
+      </select>
+
+      <button onclick="simularVotacion()">🗳️ Votar</button>
+      <button onclick="guardarResultado()">💾 Guardar Resultado</button>
+      <div id="resultado-votacion"></div>
+    </section>
+
+    <!-- Sección 2: Participación Ciudadana -->
+    <section id="participacion">
+      <h2>📊 Participación Ciudadana en Chile</h2>
+      <p>Fuente: Servel, CEP, INE. Datos reales de participación electoral (2017–2023).</p>
+      <button onclick="mostrarGrafico()">Mostrar Evolución (2017–2023)</button>
+      <canvas id="grafico-participacion" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Sección 3: Políticas Públicas -->
+    <section id="politicas">
+      <h2>🏛️ Impacto de Políticas Públicas</h2>
+      <p>Evalúa críticamente políticas basadas en casos reales de Chile, con enfoque regional.</p>
+      <div class="politicas-grid">
+        <div class="politica">
+          <h3>🗳️ Voto Automático y Obligatorio</h3>
+          <p>¿Aumenta la democracia o limita la libertad?</p>
+          <button onclick="evaluarPolitica('voto-obligatorio')">🔍 Analizar</button>
+          <p id="impacto-voto-obligatorio" class="impacto"></p>
+        </div>
+        <div class="politica">
+          <h3>🚌 Tarifa Social del Transporte</h3>
+          <p>¿Reduce la desigualdad o genera déficit fiscal?</p>
+          <button onclick="evaluarPolitica('tarifa-social')">🔍 Analizar</button>
+          <p id="impacto-tarifa-social" class="impacto"></p>
+        </div>
+        <div class="politica">
+          <h3>📚 Gratuidad Universitaria</h3>
+          <p>¿Equidad educativa o sostenibilidad financiera?</p>
+          <button onclick="evaluarPolitica('gratuidad')">🔍 Analizar</button>
+          <p id="impacto-gratuidad" class="impacto"></p>
+        </div>
+        <div class="politica">
+          <h3>💧 Agua para Atacama</h3>
+          <p>¿Cómo gestionar el agua en una de las regiones más áridas del mundo?</p>
+          <button onclick="evaluarPolitica('agua-atacama')">🔍 Analizar</button>
+          <p id="impacto-agua-atacama" class="impacto"></p>
+        </div>
+        <div class="politica">
+          <h3>☀️ Energías Renovables en el Desierto</h3>
+          <p>¿Qué impacto tienen los parques solares en comunidades locales?</p>
+          <button onclick="evaluarPolitica('energia-solar')">🔍 Analizar</button>
+          <p id="impacto-energia-solar" class="impacto"></p>
+        </div>
+        <div class="politica">
+          <h3>🔧 Educación Técnico-Profesional</h3>
+          <p>¿Cómo preparar a los jóvenes para el futuro minero y energético?</p>
+          <button onclick="evaluarPolitica('educacion-tecnica')">🔍 Analizar</button>
+          <p id="impacto-educacion-tecnica" class="impacto"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 4: Módulo de Debate -->
+    <section id="debate">
+      <h2>💬 Módulo de Debate Ciudadano</h2>
+      <p>Participa en una votación sobre un tema actual. ¡Tu voz cuenta!</p>
+      <p><strong>Tema del mes:</strong> ¿Debe el Estado financiar la educación superior para todos?</p>
+      <button onclick="votarDebate('si')">✅ Sí, es un derecho</button>
+      <button onclick="votarDebate('no')">❌ No, debe ser pagada</button>
+      <button onclick="mostrarResultadosDebate()">📊 Ver Resultados</button>
+      <div id="resultados-debate"></div>
+    </section>
+
+    <!-- Sección 5: Historial -->
+    <section id="historial">
+      <h2>📋 Tu Historial de Participación</h2>
+      <p>Registra tus decisiones y reflexiones ciudadanas.</p>
+      <button onclick="cargarHistorial()">Cargar Historial</button>
+      <ul id="lista-historial"></ul>
+    </section>
+  </main>
+
+  <!-- Habilidades del Siglo XXI -->
+  <aside id="habilidades">
+    <h3>🎯 Habilidades del Siglo XXI Desarrolladas</h3>
+    <ul>
+      <li><strong>Pensamiento Crítico:</strong> Al analizar datos, evaluar políticas y debatir.</li>
+      <li><strong>Responsabilidad Social:</strong> Al tomar decisiones que afectan al bien común.</li>
+      <li><strong>Responsabilidad Individual:</strong> Al registrar tu participación y reflexionar.</li>
+    </ul>
+  </aside>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>🛠️ Datos reales: Servel, CEP, INE, Gobierno de Atacama | Uso educativo | Asignatura: Educación Ciudadana</p>
+    <p>© 2025 - Simulador para establecimientos educacionales chilenos</p>
+    <p><strong>Creado por Christian Núñez V., Asesor Pedagógico Programa PACE-UDA, 2025.</strong></p>
+  </footer>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
